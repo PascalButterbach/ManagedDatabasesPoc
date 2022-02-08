@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost;database=databaseConnections;schema=dbo
+    password: databaseConnections
+    username: databaseConnections
+#  sql:
+#    init:
+#      mode: always
+
