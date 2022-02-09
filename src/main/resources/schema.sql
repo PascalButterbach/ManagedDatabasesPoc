@@ -20,4 +20,4 @@ CREATE TABLE [DATABASE_CONNECTION]
     url         NVARCHAR(1024),
     password    NVARCHAR(256),
     username    NVARCHAR(256)
-)
+);
