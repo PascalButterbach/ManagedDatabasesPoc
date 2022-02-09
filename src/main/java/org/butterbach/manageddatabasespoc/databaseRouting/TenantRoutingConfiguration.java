@@ -27,7 +27,6 @@ public class TenantRoutingConfiguration {
         return tenantDataSourceRouter;
     }
 
-
     @Bean("tenant_jdbi")
     public Jdbi jdbi(List<JdbiPlugin> jdbiPlugins, List<RowMapper<?>> rowMappers) throws SQLException {
         TransactionAwareDataSourceProxy proxy = new TransactionAwareDataSourceProxy(dataSource());

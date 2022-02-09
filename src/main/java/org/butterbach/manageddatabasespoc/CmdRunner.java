@@ -30,9 +30,7 @@ public class CmdRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
 
-        for (Thread thread : createCustomerThreads(UUID.fromString("11111111-1111-1111-1111-111111111111"))) {
-            thread.start();
-        }
+        createCustomerThreads(UUID.fromString("11111111-1111-1111-1111-111111111111")).forEach(Thread::start);
         createCustomerThreads(UUID.fromString("22222222-2222-2222-2222-222222222222")).forEach(Thread::start);
         createCustomerThreads(UUID.fromString("33333333-3333-3333-3333-333333333333")).forEach(Thread::start);
 
