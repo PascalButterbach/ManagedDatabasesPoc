@@ -5,21 +5,18 @@ import org.butterbach.manageddatabasespoc.service.DatabaseConnectionService;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Component
 public class TenantDataSourceRouter extends AbstractRoutingDataSource {
 
     public TenantDataSourceRouter(DatabaseConnectionService databaseConnectionService) {
 
-        ArrayList<DatabaseConnection> tenantConnectionDetails = databaseConnectionService.query();
-
-        Map<Object, Object> dataSourceMap = new HashMap<>();
-        tenantConnectionDetails.forEach(databaseConnection -> {
-            dataSourceMap.put(databaseConnection.getTenantUuid(), databaseConnection.getAsDatasource());
-        });
+        Map<Object, Object> dataSourceMap = databaseConnectionService
+                .query()
+                .stream()
+                .collect(Collectors.toMap(DatabaseConnection::getTenantUuid, DatabaseConnection::getAsDatasource));
 
         this.setTargetDataSources(dataSourceMap);
     }

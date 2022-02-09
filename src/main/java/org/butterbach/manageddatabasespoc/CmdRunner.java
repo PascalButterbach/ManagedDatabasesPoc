@@ -23,7 +23,7 @@ public class CmdRunner implements CommandLineRunner {
 
     private final int THREAD_ITERATIONS = 1000;
     private final int THREAD_SLEEP_BOUNDARY = 1000;
-    private final int THREADS = 7;
+    private final int THREADS = 5;
     private final boolean PRINT = false;
 
     @SneakyThrows
@@ -34,17 +34,17 @@ public class CmdRunner implements CommandLineRunner {
         createCustomerThreads(UUID.fromString("22222222-2222-2222-2222-222222222222")).forEach(Thread::start);
         createCustomerThreads(UUID.fromString("33333333-3333-3333-3333-333333333333")).forEach(Thread::start);
 
-//        retrieveCustomerThreads(UUID.fromString("11111111-1111-1111-1111-111111111111")).forEach(Thread::start);
-//        retrieveCustomerThreads(UUID.fromString("22222222-2222-2222-2222-222222222222")).forEach(Thread::start);
-//        retrieveCustomerThreads(UUID.fromString("33333333-3333-3333-3333-333333333333")).forEach(Thread::start);
+        retrieveCustomerThreads(UUID.fromString("11111111-1111-1111-1111-111111111111")).forEach(Thread::start);
+        retrieveCustomerThreads(UUID.fromString("22222222-2222-2222-2222-222222222222")).forEach(Thread::start);
+        retrieveCustomerThreads(UUID.fromString("33333333-3333-3333-3333-333333333333")).forEach(Thread::start);
 
         createUserThreads(UUID.fromString("11111111-1111-1111-1111-111111111111")).forEach(Thread::start);
         createUserThreads(UUID.fromString("22222222-2222-2222-2222-222222222222")).forEach(Thread::start);
         createUserThreads(UUID.fromString("33333333-3333-3333-3333-333333333333")).forEach(Thread::start);
 
-//        retrieveUserThreads(UUID.fromString("11111111-1111-1111-1111-111111111111")).forEach(Thread::start);
-//        retrieveUserThreads(UUID.fromString("22222222-2222-2222-2222-222222222222")).forEach(Thread::start);
-//        retrieveUserThreads(UUID.fromString("33333333-3333-3333-3333-333333333333")).forEach(Thread::start);
+        retrieveUserThreads(UUID.fromString("11111111-1111-1111-1111-111111111111")).forEach(Thread::start);
+        retrieveUserThreads(UUID.fromString("22222222-2222-2222-2222-222222222222")).forEach(Thread::start);
+        retrieveUserThreads(UUID.fromString("33333333-3333-3333-3333-333333333333")).forEach(Thread::start);
     }
 
     private ArrayList<Thread> createCustomerThreads(UUID tenantUuid) {
