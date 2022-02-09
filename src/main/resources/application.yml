@@ -4,7 +4,4 @@ spring:
     url: jdbc:sqlserver://localhost;database=databaseConnections;schema=dbo
     password: databaseConnections
     username: databaseConnections
-#  sql:
-#    init:
-#      mode: always
 

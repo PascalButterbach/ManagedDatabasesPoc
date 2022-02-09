@@ -17,7 +17,6 @@ public class DatabaseConnectionService {
         this.databaseConnectionDao = jdbi.onDemand(DatabaseConnectionDao.class);
     }
 
-
     public ArrayList<DatabaseConnection> query(){
         return databaseConnectionDao.query();
     }

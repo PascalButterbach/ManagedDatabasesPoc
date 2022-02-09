@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomerService {
 
-    private CustomerDao customerDao;
+    private final CustomerDao customerDao;
 
     public CustomerService(@Qualifier("tenant_jdbi") Jdbi jdbi) {
         this.customerDao = jdbi.onDemand(CustomerDao.class);
@@ -17,5 +17,9 @@ public class CustomerService {
 
     public Customer create(Customer customer){
         return customerDao.create(customer);
+    }
+
+    public Customer retrieveRandomRow(){
+        return customerDao.retrieveRandomRow();
     }
 }

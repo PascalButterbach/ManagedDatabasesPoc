@@ -1,17 +1,17 @@
 package org.butterbach.manageddatabasespoc.dao;
 
-import org.butterbach.manageddatabasespoc.model.Customer;
+import org.butterbach.manageddatabasespoc.model.User;
 import org.jdbi.v3.sqlobject.customizer.BindBean;
 import org.jdbi.v3.sqlobject.locator.UseClasspathSqlLocator;
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
 
 @UseClasspathSqlLocator
-public interface CustomerDao {
+public interface UserDao {
 
     @SqlQuery
-    Customer create(@BindBean("customer") Customer customer);
+    User create(@BindBean("user") User user);
 
     @SqlQuery
-    Customer retrieveRandomRow();
+    User retrieveRandomRow();
 
 }

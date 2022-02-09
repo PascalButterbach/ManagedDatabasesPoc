@@ -11,7 +11,7 @@ import java.util.UUID;
 @Getter
 @RequiredArgsConstructor
 @ToString
-public class Customer {
+public class User {
 
     private final UUID uuid;
     private final String name;

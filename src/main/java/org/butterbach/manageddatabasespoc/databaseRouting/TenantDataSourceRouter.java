@@ -1,4 +1,4 @@
-package org.butterbach.manageddatabasespoc.abstractRouting;
+package org.butterbach.manageddatabasespoc.databaseRouting;
 
 import org.butterbach.manageddatabasespoc.model.DatabaseConnection;
 import org.butterbach.manageddatabasespoc.service.DatabaseConnectionService;
@@ -12,14 +12,7 @@ import java.util.Map;
 @Component
 public class TenantDataSourceRouter extends AbstractRoutingDataSource {
 
-    private final TenantDatabaseContextHolder tenantDatabaseContextHolder;
-    private final DatabaseConnectionService databaseConnectionService;
-
-    public TenantDataSourceRouter(TenantDatabaseContextHolder tenantDatabaseContextHolder,
-                                  DatabaseConnectionService databaseConnectionService) {
-
-        this.tenantDatabaseContextHolder = tenantDatabaseContextHolder;
-        this.databaseConnectionService = databaseConnectionService;
+    public TenantDataSourceRouter(DatabaseConnectionService databaseConnectionService) {
 
         ArrayList<DatabaseConnection> tenantConnectionDetails = databaseConnectionService.query();
 

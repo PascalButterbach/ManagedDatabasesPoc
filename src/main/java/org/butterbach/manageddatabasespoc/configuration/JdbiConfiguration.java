@@ -31,6 +31,7 @@ public class JdbiConfiguration {
     @Bean("default_jdbi")
     public Jdbi jdbi(@Qualifier("default") DataSource ds, List<JdbiPlugin> jdbiPlugins, List<RowMapper<?>> rowMappers) {
         TransactionAwareDataSourceProxy proxy = new TransactionAwareDataSourceProxy(ds);
+
         Jdbi jdbi = Jdbi.create(proxy);
         jdbiPlugins.forEach(jdbi::installPlugin);
         rowMappers.forEach(jdbi::registerRowMapper);

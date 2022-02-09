@@ -11,13 +11,15 @@ import java.util.UUID;
 
 @Component
 public class DatabaseConnectionRowMapper implements RowMapper<DatabaseConnection> {
+
     @Override
     public DatabaseConnection map(ResultSet rs, StatementContext ctx) throws SQLException {
-        return new DatabaseConnection(
-                UUID.fromString(rs.getString("tenant_uuid")),
-                rs.getString("url"),
-                rs.getString("username"),
-                rs.getString("password")
-        );
+
+        return DatabaseConnection.builder()
+                .tenantUuid(UUID.fromString(rs.getString("tenant_uuid")))
+                .url(rs.getString("url"))
+                .username(rs.getString("username"))
+                .password(rs.getString("password"))
+                .build();
     }
 }

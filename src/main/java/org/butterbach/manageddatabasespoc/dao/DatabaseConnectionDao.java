@@ -11,4 +11,5 @@ public interface DatabaseConnectionDao {
 
     @SqlQuery
     ArrayList<DatabaseConnection> query();
+
 }
